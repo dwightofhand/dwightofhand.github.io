@@ -14,9 +14,11 @@
         <!--Navbar-->
         <div class="Navbar">
             <a class="active" href="#Home">Home</a>
+            <!-- New section added -->
+            <a href="#Slideshow">Slideshow</a>
             <a href="#About">About</a>
             <a href="#GitHub">GitHub</a>
-            <a href="#Contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
 
         <!--Breaks inserted to add space between navbar and the first heading-->
@@ -34,7 +36,7 @@
 
         <!--Video text-->
         <div class="Video_Text">
-            <h1 class="white-text">DwightofHand's Portfolio</h1>
+            <h1 class="white-text" style="font-size:8vm">DwightofHand's Portfolio</h1>
             <strong>
                 <p class="center">
                     <q>"Our brain simulates reality.  
@@ -49,6 +51,57 @@
                 </p>
             </strong>
         </div>
+                <!-- Slideshow section added -->
+                <div id="Slideshow">
+                    <div id="Slideshow_Background"> 
+                        <div id="Slideshow_Container">
+                            <!-- Slide 1 of 6 -->
+                            <div class="mySlides">
+                                <img class="Slideshow_Images" src="./Images/matrix.jpg" alt="Digital rain">
+                                <div class="text">I'm available to assist you on your project!</div>
+                            </div>
+                            <!-- Slide 2 of 6 -->
+                            <div class="mySlides">
+                                <img class="Slideshow_Images" src="./Images/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, and JS logos"> 
+                                <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+                            </div>
+                            <!-- Slide 3 of 6 -->
+                            <div class="mySlides">
+                                <img class="Slideshow_Images" src="Images/Python.png" alt="Python logo">
+                                <div class="text">the popular programming language Python,</div>
+                            </div>
+                            <!-- Slide 4 of 6 -->
+                            <div class="mySlides">
+                                <img class="Slideshow_Images" src="Images/C_Sharp_and_Dot_NET(1).png" alt="C# logo">
+                                <div class="text">C#, .NET Framework, ASP.NET, MVC, </div>
+                            </div>
+                            <!-- Slide 5 of 6 -->
+                            <div class="mySlides">
+                                <img class="Slideshow_Images" src="Images/SQL_and_Database(1).jpg" alt="SQL logo"> 
+                                <div class="text">back end development, databases and SQL.</div>
+                            </div>
+                            <!-- Slide 6 of 6 -->
+                            <div class="mySlides">
+                                <img class="Slideshow_Images" src="Images/coding_icon.png" alt="coding_icon"> 
+                                <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div> 
+                            </div>
+                            <!-- Previous and next buttons -->
+                            <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                        <br> <!-- Adds a space between the slideshow images and the dots -->
+        
+                        <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+                        <div style="text-align: center">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span> 
+                            <span class="dot" onclick="currentSlide(4)"></span> 
+                            <span class="dot" onclick="currentSlide(5)"></span> 
+                            <span class="dot" onclick="currentSlide(6)"></span> 
+                        </div>
+                    </div>
+                </div>
 
         <!--About section-->
         <div class="Row" id="About">
@@ -94,16 +147,20 @@
             </div>
             <!--Contact form, right column-->
             <div class="Column_1 Column_tall">
-                <h1>Contact</h1>
+                
                 <!--This specifies where and how to send the form data; we are leaving it blank-->
-                <form action="" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
+                <form action="https://formspree.io/f/xyzgabkp" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
+                    <h1>Contact</h1>   
+                    
                     <label>Name:</label>
                         <input type="text" placeholder="Please enter your name here">
                     <label>Email:</label>
                         <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                        <input type="submit" value="SUBMIT">
+                    <label>Phone number:</label>
+                        <input type="text" id="Phone" name="Phone" placeholder="Please enter your phone number">     
+                         <input type="submit" value="SUBMIT" onclick="openForm()" >
+                    
+
                 </form>
             </div>
         </div>
@@ -115,5 +172,14 @@
                 <br>
             </p>
         </footer>
+        <script>
+        document.body.classList.add('fade-out');
+        
+        window.addEventListener('DOMContentLoaded', () => {
+     document.body.classList.remove('fade-out');
+    });
+        
+        </script>
+    <script src="/JS/portfolio.js"></script>    
     </body>
 </html>
